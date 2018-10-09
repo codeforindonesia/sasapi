@@ -2,10 +2,11 @@
 Menyajikan data dari database aplikasi SAS dalam format JSON
 
 ## Usage
+```
 name: SAS API
 version: 1.0.2
 date: 29-09-2018
-maintainer: arief.karfianto@ksp.go.id
+
 URL: https://yourdomain.tld/api/v1
 Method: POST
 parameters:
@@ -25,3 +26,7 @@ Changes in version 1.0.2 (29-09-2018)
 
 Changes in version 1.0.1 (24-09-2018)
     + add action: pagu
+```
+
+## Feedback
+arief.karfianto@ksp.go.id

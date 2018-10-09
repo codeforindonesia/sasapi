@@ -1,0 +1,34 @@
+{
+	"Database": {
+		"Type": "MySQL",
+		"MySQL": {
+			"Username": "root",
+			"Password": "root",
+			"Name": "sas",
+			"Hostname": "127.0.0.1",
+			"Port": 3306,
+			"Parameter": "?parseTime=true"
+		}
+	},
+	"Server": {
+		"Hostname": "",
+		"UseHTTP": true,
+		"UseHTTPS": false,
+		"HTTPPort": 8888,
+		"HTTPSPort": 8443,
+		"CertFile": "tls/server.crt",
+		"KeyFile": "tls/server.key"
+	},
+	"Session": {
+		"Token": "ChangeThisWithYourTokenForPostRequest",
+		"SecretKey": "YourSecretKeySession",
+		"Name": "go_sas",
+		"Options": {
+			"Path": "/",
+			"Domain": "sas.yourdomain.com",
+			"MaxAge": 28800,
+			"Secure": false,
+			"HttpOnly": true
+		}
+	}
+}

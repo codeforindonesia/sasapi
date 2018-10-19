@@ -35,7 +35,7 @@ type Pagu struct {
 func RealisasiByDate(startDate, endDate string) ([]Realisasi, error) {
 	var err error
 	var result []Realisasi
-	err = database.SQL.Select(&result, "SELECT m_spmmak.kdoutput as kdoutput, d_item.kdkmpnen as kdkmpnen, d_item.kdskmpnen as kdskmpnen, m_spmmak.kdakun as kdakun, m_spmmak.nosp2d as nosp2d, m_spmmak.tgsp2d as tgsp2d, CONCAT(m_spmind.nospp, m_spmind.nospp2) AS nospp, m_spmind.tgspp as tgspp, CONCAT(m_spmind.nospm, m_spmind.nospm2) AS nospm, m_spmind.tgspm as tgspm, m_spminfo.kdnpwp2 as kdnpwp2, m_spminfo.uraiben1 as uraiben1, m_spminfo.uraiben2 as uraiben2, m_spmmak.nilmak as nilmak FROM m_spmind LEFT JOIN m_spmmak ON m_spmind.nosp2d = m_spmmak.nosp2d LEFT JOIN m_spminfo ON m_spmind.nosp2d = m_spminfo.nosp2d LEFT JOIN d_item ON d_item.kdoutput = m_spmmak.kdoutput AND d_item.kdbeban = m_spmmak.kdbeban AND d_item.kdakun = m_spmmak.kdakun AND d_item.kdgiat = m_spmmak.kdgiat WHERE m_spmind.tgspm >= ? AND m_spmind.tgspm <= ? GROUP BY m_spmmak.nosp2d", startDate, endDate)
+	err = database.SQL.Select(&result, "SELECT mm_spmmak.kdoutput as kdoutput, mm_spmmak.kdkmpnen as kdkmpnen, mm_spmmak.kdskmpnen as kdskmpnen, mm_spmmak.kdakun as kdakun, mm_spmmak.nosp2d as nosp2d, mm_spmmak.tgsp2d as tgsp2d, CONCAT(m_spmind.nospp, m_spmind.nospp2) AS nospp, m_spmind.tgspp as tgspp, CONCAT(m_spmind.nospm, m_spmind.nospm2) AS nospm, m_spmind.tgspm as tgspm, m_spminfo.kdnpwp2 as kdnpwp2, m_spminfo.uraiben1 as uraiben1, m_spminfo.uraiben2 as uraiben2, mm_spmmak.nilmak as nilmak FROM m_spmind LEFT JOIN mm_spmmak ON m_spmind.nosp2d = mm_spmmak.nosp2d LEFT JOIN m_spminfo ON m_spmind.nosp2d = m_spminfo.nosp2d WHERE m_spmind.tgspm >= ? AND m_spmind.tgspm <= ? GROUP BY mm_spmmak.nosp2d", startDate, endDate)
 	if err != nil {
 		log.Println(err)
 	}
